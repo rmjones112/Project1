@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 
   <meta charset="utf-8">
@@ -13,15 +14,24 @@
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Daterange picker CSS-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+  
   <!-- Custom styles for this template -->
   <link href="css/agency.css" rel="stylesheet">
+  <!-- Link to jQuery library -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 
 </head>
 
@@ -61,16 +71,43 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <!-- <div class="intro-lead-in">Where would you like to go?</div> -->
-        <div class="intro-heading text-uppercase">Where would you like to go?</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Enter Dates</a>
-        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+        <div class="intro-lead-in" id="introLead">Where's life taking you?</div>
+        <!-- <div class="intro-heading text-uppercase">Where would you like to go?</div> -->
+        <div class="row">
+        <div class="col-md-4">
+        </div> 
+        <div class="col-md-4">  
+          <div class="form-group">
+            <input class="form-control" id="locationName" type="text" placeholder="Enter your destination..." required="required" data-validation-required-message="Please enter your location.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          </div>  
+      </div>
+      
+      <!-- <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              One of three columns
+            </div>
+            <div class="col-sm">
+              One of three columns
+            </div>
+            <div class="col-sm">
+              One of three columns
+            </div>
+          </div>
+        </div> -->
+
+        <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger" id="submitDestination" href="#services">Let's go!</a>
+        <input type="text" name="daterange" value="09/15/2019 - 10/31/2019" />
         
       </div>
     </div>
   </header>
 
-  <!-- Services -->
+  <!-- Services: code to review for deletion -->
   <!-- <section class="page-section" id="services">
     <div class="container">
       <div class="row">
@@ -125,11 +162,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/weather.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Threads</h4>
-            <p class="text-muted">Illustration</p>
+            <h4>Weather</h4>
+            <p class="text-muted">Details of destination</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -139,11 +176,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/food2.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Explore</h4>
-            <p class="text-muted">Graphic Design</p>
+            <h4>Food</h4>
+            <p class="text-muted">Top dining options</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -153,11 +190,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/events2.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Finish</h4>
-            <p class="text-muted">Identity</p>
+            <h4>Events</h4>
+            <p class="text-muted">What's happening?</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -167,11 +204,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/packing2.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Lines</h4>
-            <p class="text-muted">Branding</p>
+            <h4>Packing List</h4>
+            <p class="text-muted">What shall I bring?</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -181,11 +218,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/experiences2.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Southwest</h4>
-            <p class="text-muted">Website Design</p>
+            <h4>Experiences</h4>
+            <p class="text-muted">Exciting things to do</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -195,11 +232,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
+            <img class="img-fluid" src="../Project1/assets/map2.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Window</h4>
-            <p class="text-muted">Photography</p>
+            <h4>Map</h4>
+            <p class="text-muted">Where am I?</p>
           </div>
         </div>
       </div>
@@ -220,7 +257,7 @@
           <ul class="timeline">
             <li>
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+                <img class="rounded-circle img-fluid" src="../Project1/assets/whiteboard.jpg" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -292,12 +329,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+          <h2 class="section-heading text-uppercase">the gang</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
             <h4>Kay Garland</h4>
@@ -321,7 +358,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
             <h4>Larry Parker</h4>
@@ -345,7 +382,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
             <h4>Diana Pertersen</h4>
@@ -369,7 +406,31 @@
             </ul>
           </div>
         </div>
+      <div class="col-sm-3">
+        <div class="team-member">
+          <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
+          <h4>Diana Pertersen</h4>
+          <p class="text-muted">Lead Developer</p>
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
@@ -378,8 +439,10 @@
     </div>
   </section>
 
-  <!-- Clients -->
+
+  <!-- Clients
   <section class="py-5">
+
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
@@ -404,7 +467,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Contact -->
   <section class="page-section" id="contact">
@@ -412,7 +475,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted">We are out there somewhere.</h3>
         </div>
       </div>
       <div class="row">
@@ -456,23 +519,26 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
+          <span class="copyright">Copyright &copy; PackItUP 2019</span>
         </div>
         <div class="col-md-4">
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
-              <a href="#">
+              <!-- links to twitter page -->
+              <a href="https://twitter.com/beefy_bois" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <!-- links to facebook page -->
+              <a href="https://www.facebook.com/beefyBois/" target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
+              <!-- links to linkedin page -->
               <a href="#">
-                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-linkedin-in" target="_blank"></i>
               </a>
             </li>
           </ul>
@@ -609,18 +675,29 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <h2 class="text-uppercase">Packing List</h2>
+                <p class="item-intro text-muted">Below are the items are need to pack.</p>
+                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt=""> -->
+                <!-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                 <ul class="list-inline">
                   <li>Date: January 2017</li>
                   <li>Client: Lines</li>
                   <li>Category: Branding</li>
-                </ul>
+                </ul> -->
+                <div class="col-md-3">
+                <div class="form-group">
+                  <input class="form-control" id="locationName" type="text" placeholder="Enter your destination..." required="required" data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+
+                <form>
+                  <span id="todo-item">To Do Item: <input id="to-do" type="text" ><input id="add-to-do" value="Add Item" type="submit"></span>
+                </form>
+            
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Close List</button>
               </div>
             </div>
           </div>
@@ -701,6 +778,10 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <!-- JavaScript for datepicker-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -710,6 +791,14 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
+
+
+  <!-- Our group style sheet-->
+  <script src="../Project1/assets/ourstyle.js"></script>
+
+
+  <!-- local javascript link -->
+<script src="js/app.js"></script>
 
 </body>
 
