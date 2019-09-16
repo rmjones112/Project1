@@ -6,7 +6,7 @@ var packingList = {
     warmWeather: ["shorts", "sunglasses", "sunscreen"],
     coldWeather: ["coat", "hat", "gloves"],
     concert: ["closed toe shoes"],
-    foodHigh: 
+    
 }
 
 //Created jquery event listener to detect form submission when "Let's Go" button has been clicked
