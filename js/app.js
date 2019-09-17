@@ -31,19 +31,20 @@ function grabRestaurantInfo() {
         for (let i = 0; i < 5; i++) {
             //creates a new div to hold restaurant info
             var foodDiv = $("<div>");
-            //var restaurant =$(`<img src="${restaurant.businesses[i].img_url}">`)
+            var restaurantImage = $(`<img src="${response.businesses[i].image_url}">`)
+            console.log(restaurantImage)
             //Gets restaurant name
             foodDiv.append("Restaurant Name: " + response.businesses[i].name);
             // Gets the rating of the restaurant 
             foodDiv.append(" Rating: " + response.businesses[i].rating);
             // Gets restaurant price 
             foodDiv.append(" Price: " + response.businesses[i].price);
-            
-            //foodDiv.append(restaurant);
-            
-            $("#display-food").append(foodDiv);
 
-           // console.log(response.businesses[i]);
+            foodDiv.append(restaurantImage);
+
+            $("#display-food").prepend(foodDiv);
+
+            // console.log(response.businesses[i]);
         }
 
     });
