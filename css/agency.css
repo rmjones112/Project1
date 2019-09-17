@@ -580,9 +580,13 @@
   .team-member img {
     width: 225px;
     height: 225px;
-    border: 7px solid rgba(0, 0, 0, 0.1);
+    border: 7px solid rgba(0, 0, 0, 0.1); 
   }
-  
+  #img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
   .team-member h4 {
     margin-top: 25px;
     margin-bottom: 0;
