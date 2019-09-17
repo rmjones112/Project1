@@ -16,6 +16,7 @@ $("#submitDestination").on("click", function (){
     //console.log(location)
     destination = location
     console.log(destination, startDateRange, endDateRange)
+    grabExperiences(location)
 });
 
 //Daterange picker JS
