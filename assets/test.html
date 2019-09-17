@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AJax test file</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+  </head>
+​
+  <body>
+    <div class="place-food"></div>
+​
+​
+​
+    <!-- ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.js"></script> 
+​
+    <script>
+      //link to weather api
+    var openWeatherURL = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2d57a57cff835d1bdd699a50fab1b250`;
+      
+      function grabRestaurant(){
+        // link to yelp api
+        var yelpURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=seattle&categories=pizza&radius=16094&rating=3.5&price=2,3&limit=5`;
+        
+        $.ajax({
+            url:yelpURL,
+            method:"GET",
+            beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "Bearer " + "XiFkJFuigGVABcZ-Xd8w2-i_UCfLMIIRPf6miBBNlbfUDlp7k-Z3tACaYHnJuOX97DzcFH2LrFn1c2-F3A2RxoKXDMyw0tLiW9jNPBeXpdaKIiWxSgmx2jZjfkl5XXYx" );
+      },
+          }).then(function(response){
+            console.log("Yelp")
+            //retrieves business name
+            console.log("name of  restaurant: " + response.businesses[0].name);
+            console.log("Price of the restaurant: " + response.businesses[0].price);
+            console.log("Rating of the restaurant: " + response.businesses[0].rating);
+            console.log("link to yelp review of the restaurant: " + response.businesses[0].url);
+            console.log("Image of the restaurant: " + response.businesses[0].img_url);
+            console.log(response);
+          });
+          // var foodDiv = $("<div class=display-food>");
+          // foodDiv.append(response.business[0].name)
+        }  
+         
+      $.ajax({
+        url: openWeatherURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log("openWeather")
+       console.log(response);
+      });
+      grabRestaurant();
+    </script>
+  </body>
+</html>
+
+
+
