@@ -89,7 +89,7 @@ $(document).ready(function(){
       toDoItem = toDoItem.prepend(toDoClose);
 
       // Add the button and to do item to the to-dos div
-      $("#packingItems").append(toDoItem);
+      $("#packingItems").prepend(toDoItem);
 
       // Clear the textbox when done
       $("#to-do").val("");
