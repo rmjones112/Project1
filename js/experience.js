@@ -26,11 +26,14 @@ function grabExperiences(location){
         var gotFancy = false
         $.each(response.businesses, function(key,val){ 
             $("<a target='_blank' href = '" + val.url + "'>").append($("<h3>" + val.name + "</h3>")).appendTo(container)
+            $("<h3>" + val.location.address1 + "</h3>").appendTo(container)
             $("<h3>" + val.price + "</h3>").appendTo(container)
+            $("<h3>" + val.rating + "</h3>").appendTo(container)
+
             if (val.img_url){
                 $("<img src='" + val.img_url + "' />").appendTo(container)
             }
-           if (val.price.length >=2 && !gotFancy){
+           if (val.price.length >=4 && !gotFancy){
                addPackingItem("Fancy clothes")
                gotFancy = true
            }
