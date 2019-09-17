@@ -2,7 +2,7 @@ var destination = ""
 var startDateRange = ""
 var endDateRange = ""
 var packingList = {
-    essentials: ["cell phone charger", "Identificaiton", "Passport", "Camera"], 
+    essentials: ["cell phone charger", "Identification", "Passport", "Camera"], 
     warmWeather: ["shorts", "sunglasses", "sunscreen"],
     coldWeather: ["coat", "hat", "gloves"],
     concert: ["closed toe shoes"],
@@ -17,6 +17,7 @@ $("#submitDestination").on("click", function (){
     destination = location
     console.log(destination, startDateRange, endDateRange)
     grabExperiences(location)
+    //jquery animate and scroll top
 });
 
 //Daterange picker JS
@@ -30,7 +31,11 @@ $(function() {
     });
   });
 
-
+$(document).ready(function(){
+  $.each(packingList.essentials, function(key,item){
+    addPackingItem(item)
+  })
+})
   
    
 
@@ -42,16 +47,33 @@ $(function() {
       event.preventDefault();
 
       // Get the to-do "value" from the textbox and store it a variable
-      var toDoTask = $("#to-do").val().trim();
-
+      var packingItem = $("#to-do").val().trim();
+      if (packingItem){
+        addPackingItem(packingItem)
+      }
       // Create a new variable that will hold a "<p>" tag.
       // Then give it an ID in the following form:
       // "item-4" or "item-3" or "item-99", where the number is equal to toDoCount.
       // Then set the to-do "value" as text to this <p> element.
+     
+    });
+
+    // When a user clicks a check box then delete the specific content
+    // (NOTE: Pay attention to the unusual syntax here for the click event.
+    // Because we are creating click events on "dynamic" content, we can't just use the usual "on" "click" syntax.)
+    $(document.body).on("click", ".checkbox", function() {
+
+      // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
+      var toDoNumber = $(this).attr("data-to-do");
+
+      // Select and Remove the specific <p> element that previously held the to do item number.
+      $("#item-" + toDoNumber).remove();
+    });
+    function addPackingItem(packingItem){
       var toDoItem = $("<p>");
 
       toDoItem.attr("id", "item-" + toDoCount);
-      toDoItem.text(toDoTask);
+      toDoItem.text(packingItem);
 
       // Create a button with unique identifiers based on what number it is in the list. Again use jQuery to do this.
       // Give your button a data attribute called data-to-do and a class called "checkbox".
@@ -67,23 +89,11 @@ $(function() {
       toDoItem = toDoItem.prepend(toDoClose);
 
       // Add the button and to do item to the to-dos div
-      $("#to-dos").append(toDoItem);
+      $("#packingItems").append(toDoItem);
 
       // Clear the textbox when done
       $("#to-do").val("");
 
       // Add to the toDoCount
       toDoCount++;
-    });
-
-    // When a user clicks a check box then delete the specific content
-    // (NOTE: Pay attention to the unusual syntax here for the click event.
-    // Because we are creating click events on "dynamic" content, we can't just use the usual "on" "click" syntax.)
-    $(document.body).on("click", ".checkbox", function() {
-
-      // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
-      var toDoNumber = $(this).attr("data-to-do");
-
-      // Select and Remove the specific <p> element that previously held the to do item number.
-      $("#item-" + toDoNumber).remove();
-    });
+    }

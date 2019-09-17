@@ -23,13 +23,18 @@ function grabExperiences(location){
         console.log("Image of the experience: " + response.businesses[0].img_url);
         // $("#portfolioModal5 #experienceContent").html(JSON.stringify(response))
         var container = $("<div>")
+        var gotFancy = false
         $.each(response.businesses, function(key,val){ 
             $("<a target='_blank' href = '" + val.url + "'>").append($("<h3>" + val.name + "</h3>")).appendTo(container)
             $("<h3>" + val.price + "</h3>").appendTo(container)
             if (val.img_url){
                 $("<img src='" + val.img_url + "' />").appendTo(container)
             }
-           
+           if (val.price.length >=2 && !gotFancy){
+               addPackingItem("Fancy clothes")
+               gotFancy = true
+           }
+
         })
         container.appendTo($("#portfolioModal5 #experienceContent"))
       });
