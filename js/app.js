@@ -30,19 +30,20 @@ function grabRestaurantInfo() {
         //Loops through yelps businesses array 
         for (let i = 0; i < 5; i++) {
             //creates a new div to hold restaurant info
-            var foodDiv = $("<div>");
+            var restaurantDiv = $("<div>");
+            //image element to store businesses image url
             var restaurantImage = $(`<img src="${response.businesses[i].image_url}">`)
             console.log(restaurantImage)
             //Gets restaurant name
-            foodDiv.append("Restaurant Name: " + response.businesses[i].name);
+            restaurantDiv.append("Restaurant Name: " + response.businesses[i].name);
             // Gets the rating of the restaurant 
-            foodDiv.append(" Rating: " + response.businesses[i].rating);
+            restaurantDiv.append(" Rating: " + response.businesses[i].rating);
             // Gets restaurant price 
-            foodDiv.append(" Price: " + response.businesses[i].price);
+            restaurantDiv.append(" Price: " + response.businesses[i].price);
+            //adds restaurantImage to restaurant info
+            restaurantDiv.append(restaurantImage);
 
-            foodDiv.append(restaurantImage);
-
-            $("#display-food").prepend(foodDiv);
+            $("#display-food").prepend(restaurantDiv);
 
             // console.log(response.businesses[i]);
         }
