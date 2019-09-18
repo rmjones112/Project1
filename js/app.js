@@ -80,11 +80,11 @@ function eventSearch(location, startDate, endDate) {
         console.log("Event Bright")
         console.log(response);
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
 
             var eventDiv = $("<div>");
             //image element to store businesses image url
-            // var eventImage = $(`<img src="${response.events[0].}" class="image-size">`)
+            var eventImage = $(`<img src="${response.events[i].logo.original.url}" class="image-size">`)
             //Displays the name of the event
             console.log("Name of the event: " + response.events[i].name.text)
             eventDiv.append("Name of the event: " + response.events[i].name.text);
@@ -92,17 +92,11 @@ function eventSearch(location, startDate, endDate) {
             // Displays a summary of the event 
             console.log("Summary: " + response.events[i].summary)
             eventDiv.append("Event Summary: " + response.events[i].summary);
-
-            //Displays if the event will be free or paid for
-            console.log("Is this event free: " + response.events[i].is_free);
+            //adds Event picture with event information
+            eventDiv.append(eventImage);
             
-            eventDiv.append("Is this event free: " + response.events[i].is_free);
-
-            //displays the price of the event
-            // eventDiv.append(response.events[0].);
 
             // eventDiv.append(eventImage);
-
             $("#display-events").prepend(eventDiv);
 
         }
@@ -144,8 +138,6 @@ $("#submitDestination").on("click", function () {
     newStartDate = startDate + "T00:00:01";
     //adds end time to the end of selected date 
     newEndDate = endDate + "T23:59:59";
-    console.log("Newstart ", newStartDate,
-        "newEnd", newEndDate)
 
     eventSearch(location, newStartDate, newEndDate);
 
