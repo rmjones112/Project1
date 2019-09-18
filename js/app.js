@@ -3,7 +3,6 @@ var yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
 
 var weatherURL = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2d57a57cff835d1bdd699a50fab1b250`
 
-var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue`
 
 // grabs information from "Yelp"
 function grabRestaurantInfo(location) {
@@ -19,7 +18,7 @@ function grabRestaurantInfo(location) {
 
     }).then(function (response) {
         console.log("Yelp")
-        //retrieves business name
+        // retrieves business name
         console.log("name of  restaurant: " + response.businesses[0].name);
         console.log("Price of the restaurant: " + response.businesses[0].price);
         console.log("Rating of the restaurant: " + response.businesses[0].rating);
@@ -32,8 +31,8 @@ function grabRestaurantInfo(location) {
             //creates a new div to hold restaurant info
             var restaurantDiv = $("<div>");
             //image element to store businesses image url
-            var restaurantImage = $(`<img src="${response.businesses[i].image_url}" class="image-size">`,)
-            
+            var restaurantImage = $(`<img src="${response.businesses[i].image_url}" class="image-size">`)
+
             console.log(restaurantImage)
             //Gets restaurant name
             restaurantDiv.append("Restaurant Name: " + response.businesses[i].name);
@@ -54,7 +53,7 @@ function grabRestaurantInfo(location) {
 }
 
 //Created jquery event listener to detect form submission when "Let's Go" button has been clicked
-$("#submitDestination").on("click", function (){
+$("#submitDestination").on("click", function () {
     $("#display-food").empty();
     var location = $("#locationName").val()
     destination = location
@@ -75,17 +74,34 @@ $.ajax({
 });
 
 
-// grabs information from "event bright" on events happening 
-$.ajax({
-    url: eventBrightURL,
-    method: "GET",
-    headers: {
-        Authorization: "Bearer GAFDAJ43Z42P2Z5NMDAQ"
-    }
+// grabs information from "event bright" on events happening
+// TODO: Put in event  a specific date for events
+// TODO: put in a distance for events
+// TODO: put in the location for the events
+// TODO: 
+// function eventSearch(startDate,endDate){
+
+// var entireDate = $("#date-range").val();
+// var dateArray = entireDate.split(" - ");
+// var startDate = dateArray[0];
+// var endDate = dateArray[1];
 
 
-}).then(function (response) {
-    console.log("Event Bright")
-    console.log(response);
 
-})
+//     var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue&start_date=${startDate}&range_end${endDate}`
+
+//     $.ajax({
+//         url: eventBrightURL,
+//         method: "GET",
+//         headers: {
+//             Authorization: "Bearer GAFDAJ43Z42P2Z5NMDAQ"
+//         }
+
+
+//     }).then(function (response) {
+//         console.log("Event Bright")
+//         console.log(response);
+
+//     })
+
+// };
