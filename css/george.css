@@ -3,9 +3,28 @@
 }
 
 .packing-list-item {
- 
+    display: flex;
+    align-items: left;  
 }
 
+.packing-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.packing-list-item:last-child {
+    border: 0;
+}
+.packing-list-item:hover {
+    background-color: #9c9a9a;
+}
+
+.packing-list-item:nth-child(odd) {
+    background-color: #fed136;
+  }
+
+.checkbox {
+    margin-right: 10px
+}
 #particles-js {
     position: absolute;
     width: 100%;
