@@ -1,4 +1,5 @@
 /* controls the sizing of the food images */
 .image-size{
-
+    height:250px;
+    width:250px;
 }
