@@ -2,7 +2,7 @@ var destination = ""
 var startDateRange = ""
 var endDateRange = ""
 var packingList = {
-    essentials: ["cell phone charger", "Identification", "Passport", "Camera"], 
+    essentials: ["Lightweight clothing that can be layered","Long-sleeved shirts","Sweaters or fleece jacket","T-shirts and tank tops (be respectful of the culture you are visiting)","Pants and/or shorts","Belt","Socks – wool socks are best for hiking","Comfortable walking shoes","Rain jacket, windbreaker or umbrella","Pajamas/sleepwear","Underwear/delicates","Sunglasses and glasses case","Dresses and/or skirts","Jewelry – organize in a mini cube or circlet","Hat or sun visor","Scarf or bandana","Swimsuit or swim trunks – consider a wet/dry organizer","Cell phone and charger","Travel speakers","Travel pillow, eye mask and ear plugs","Electric converters and adapters","Travel apps that will help with language, and money conversion",], 
     warmWeather: ["shorts", "sunglasses", "sunscreen"],
     coldWeather: ["coat", "hat", "gloves"],
     concert: ["closed toe shoes"],
@@ -18,6 +18,7 @@ $("#submitDestination").on("click", function (){
     console.log(destination, startDateRange, endDateRange)
     grabExperiences(location)
     //jquery animate and scroll top
+    fetchWeather(location);
 });
 
 //Daterange picker JS

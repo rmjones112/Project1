@@ -163,3 +163,4 @@ $("#submitDestination").on("click", function () {
 });
 
 //eventSearch("New Orleans", "2019-09-20T00:00:01", "2019-10-10T23:59:59");
+
