@@ -1,5 +1,8 @@
+//was able to get skycons working on my repo but not in project 
+
 //api key a300a7a9db8bfc85777c8db570674ef3
 //Object Destructuring
+
 function getWeatherWithCoords(coordinates) {
     const temperatureDescription = document.querySelector(`.temperature-description`);
     const temperatureDegree = document.querySelector(`.temperature-degree`);
@@ -51,10 +54,3 @@ function getWeatherWithCoords(coordinates) {
         .then(coordinates => getWeatherWithCoords(coordinates))
         .catch(err => console.log(err));
     }
-
-    $('.submit').on('click', function(event){
-        event.preventDefault();
-        var city = $('.weather-val').val();
-        //Whats next
-        fetchWeather(city);
-    });
