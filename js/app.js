@@ -6,9 +6,9 @@ var weatherURL = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/dat
 var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue`
 
 // grabs information from "Yelp"
-function grabRestaurantInfo() {
+function grabRestaurantInfo(location) {
     // link to yelp api
-    var yelpURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=seattle&radius=16094&rating=5&price=2,3&limit=5`;
+    var yelpURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${location}&radius=16094&rating=5&price=2,3&limit=5`;
 
     $.ajax({
         url: yelpURL,
@@ -24,7 +24,7 @@ function grabRestaurantInfo() {
         console.log("Price of the restaurant: " + response.businesses[0].price);
         console.log("Rating of the restaurant: " + response.businesses[0].rating);
         console.log("link to yelp review of the restaurant: " + response.businesses[0].url);
-        console.log("Image of the restaurant: " + response.businesses[0].img_url);
+        console.log("Image of the restaurant: " + response.businesses[0].image_url);
         console.log(response);
 
         //Loops through yelps businesses array 
@@ -32,7 +32,8 @@ function grabRestaurantInfo() {
             //creates a new div to hold restaurant info
             var restaurantDiv = $("<div>");
             //image element to store businesses image url
-            var restaurantImage = $(`<img src="${response.businesses[i].image_url}">`)
+            var restaurantImage = $(`<img src="${response.businesses[i].image_url}" class="image-size">`,)
+            
             console.log(restaurantImage)
             //Gets restaurant name
             restaurantDiv.append("Restaurant Name: " + response.businesses[i].name);
@@ -44,8 +45,6 @@ function grabRestaurantInfo() {
             restaurantDiv.append(restaurantImage);
 
             $("#display-food").prepend(restaurantDiv);
-
-            // console.log(response.businesses[i]);
         }
 
     });
@@ -54,8 +53,15 @@ function grabRestaurantInfo() {
 
 }
 
-
-grabRestaurantInfo();
+//Created jquery event listener to detect form submission when "Let's Go" button has been clicked
+$("#submitDestination").on("click", function (){
+    $("#display-food").empty();
+    var location = $("#locationName").val()
+    destination = location
+    console.log(destination, startDateRange, endDateRange)
+    grabRestaurantInfo(location);
+    //jquery animate and scroll top
+});
 
 
 // grabs information about weather from "open weather"
