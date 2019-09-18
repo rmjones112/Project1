@@ -35,3 +35,7 @@
 .weather-modal.modal-content {
     background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
 }
+
+.button{
+    background-color: yellow;
+}
