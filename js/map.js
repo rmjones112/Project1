@@ -63,5 +63,6 @@ function initAutocomplete() {
             }
         });
         map.fitBounds(bounds);
+        map.setZoom(14)
     });
 }
