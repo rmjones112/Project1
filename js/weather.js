@@ -1,6 +1,5 @@
 //was able to get skycons working on my repo but not in project 
 
-//api key a300a7a9db8bfc85777c8db570674ef3
 //Object Destructuring
 
 function getWeatherWithCoords(coordinates) {
