@@ -22,6 +22,10 @@
     background-color: #fed136;
   }
 
+.packing-list-item:nth-child(odd):hover {
+    background-color:  #9c9a9a;
+  }
+
 .checkbox {
     margin-right: 10px
 }
@@ -35,4 +39,8 @@
 #about {
     position: relative;
     margin-bottom: 100px;
+}
+
+#list-form {
+    margin-bottom: 30px;
 }
