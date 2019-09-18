@@ -38,9 +38,25 @@
 
 #about {
     position: relative;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 #list-form {
     margin-bottom: 30px;
+}
+
+#contact-muted {
+    color: #fff !important;
+}
+
+#contact-us {
+    margin-bottom: 50px;
+}
+
+#team-margin {
+    margin-bottom: 50px;
+}
+
+#about-margin {
+    margin-bottom: 50px !important;
 }
