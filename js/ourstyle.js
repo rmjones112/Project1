@@ -18,6 +18,7 @@ $("#submitDestination").on("click", function (){
     console.log(destination, startDateRange, endDateRange)
     grabExperiences(location)
     //jquery animate and scroll top
+    fetchWeather(location);
 });
 
 //Daterange picker JS
