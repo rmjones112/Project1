@@ -1,4 +1,5 @@
 var json = {
+  
     "particles": {
       "number": {
         "value": 6,
@@ -8,10 +9,10 @@ var json = {
         }
       },
       "color": {
-        "value": "#1b1e34"
+        "value": "#1f233e"
       },
       "shape": {
-        "type": "polygon",
+        "type": "circle",
         "stroke": {
           "width": 0,
           "color": "#000"
@@ -36,12 +37,12 @@ var json = {
         }
       },
       "size": {
-        "value": 160,
-        "random": false,
+        "value": 82.86050237138863,
+        "random": true,
         "anim": {
           "enable": true,
           "speed": 10,
-          "size_min": 40,
+          "size_min": 30.369630369630368,
           "sync": false
         }
       },
