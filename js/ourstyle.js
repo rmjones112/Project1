@@ -11,8 +11,12 @@ $("#submitDestination").on("click", function (){
     console.log(destination, startDateRange, endDateRange)
     grabExperiences(location)
     //jquery animate and scroll top
+//george
     var elmnt = document.getElementById("portfolio");
     elmnt.scrollIntoView();
+//rachel's function for weather
+    fetchWeather(location);
+
 });
 
 //Daterange picker JS

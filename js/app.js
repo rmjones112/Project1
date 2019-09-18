@@ -3,12 +3,11 @@ var yelpURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
 
 var weatherURL = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2d57a57cff835d1bdd699a50fab1b250`
 
-var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=seattle&location.within=10km&expand=venue`
 
 // grabs information from "Yelp"
-function grabRestaurantInfo() {
+function grabRestaurantInfo(location) {
     // link to yelp api
-    var yelpURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=seattle&radius=16094&rating=5&price=2,3&limit=5`;
+    var yelpURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${location}&radius=16094&rating=5&price=2,3&limit=5`;
 
     $.ajax({
         url: yelpURL,
@@ -18,22 +17,23 @@ function grabRestaurantInfo() {
         },
 
     }).then(function (response) {
-        console.log("Yelp")
-        //retrieves business name
-        console.log("name of  restaurant: " + response.businesses[0].name);
-        console.log("Price of the restaurant: " + response.businesses[0].price);
-        console.log("Rating of the restaurant: " + response.businesses[0].rating);
-        console.log("link to yelp review of the restaurant: " + response.businesses[0].url);
-        console.log("Image of the restaurant: " + response.businesses[0].img_url);
-        console.log(response);
+        // console.log("Yelp")
+        // // retrieves business name
+        // console.log("name of  restaurant: " + response.businesses[0].name);
+        // console.log("Price of the restaurant: " + response.businesses[0].price);
+        // console.log("Rating of the restaurant: " + response.businesses[0].rating);
+        // console.log("link to yelp review of the restaurant: " + response.businesses[0].url);
+        // console.log("Image of the restaurant: " + response.businesses[0].image_url);
+        // console.log(response);
 
         //Loops through yelps businesses array 
         for (let i = 0; i < 5; i++) {
             //creates a new div to hold restaurant info
             var restaurantDiv = $("<div>");
             //image element to store businesses image url
-            var restaurantImage = $(`<img src="${response.businesses[i].image_url}">`)
-            console.log(restaurantImage)
+            var restaurantImage = $(`<img src="${response.businesses[i].image_url}" class="image-size">`);
+
+            console.log(restaurantImage);
             //Gets restaurant name
             restaurantDiv.append("Restaurant Name: " + response.businesses[i].name);
             // Gets the rating of the restaurant 
@@ -44,8 +44,6 @@ function grabRestaurantInfo() {
             restaurantDiv.append(restaurantImage);
 
             $("#display-food").prepend(restaurantDiv);
-
-            // console.log(response.businesses[i]);
         }
 
     });
@@ -55,8 +53,6 @@ function grabRestaurantInfo() {
 }
 
 
-grabRestaurantInfo();
-
 
 // grabs information about weather from "open weather"
 $.ajax({
@@ -64,78 +60,107 @@ $.ajax({
     method: "GET"
 
 }).then(function (response) {
-    console.log("weather")
-    console.log(response);
+    // console.log("weather")
+    // console.log(response);
 });
 
 
-// grabs information from "event bright" on events happening 
-$.ajax({
-    url: eventBrightURL,
-    method: "GET",
-    headers: {
-        Authorization: "Bearer GAFDAJ43Z42P2Z5NMDAQ"
-    }
+// grabs information from "event bright
+function eventSearch(location, startDate, endDate) {
+
+   
+    var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=${location}&location.within=10km&expand=venue&start_date.range_start=${startDate}&start_date.range_end=${endDate}`
+    $.ajax({
+        url: eventBrightURL,
+        method: "GET",
+        headers: {
+            Authorization: "Bearer GAFDAJ43Z42P2Z5NMDAQ"
+        }
+    }).then(function (response) {
+        console.log("Event Bright")
+        console.log(response);
+
+        for (let i = 0; i < 4; i++) {
+
+            var eventDiv = $("<div>");
+            //image element to store businesses image url
+            // var eventImage = $(`<img src="${response.events[0].}" class="image-size">`)
+            //Displays the name of the event
+            console.log("Name of the event: " + response.events[i].name.text)
+            eventDiv.append("Name of the event: " + response.events[i].name.text);
+
+            // Displays a summary of the event 
+            console.log("Summary: " + response.events[i].summary)
+            eventDiv.append("Event Summary: " + response.events[i].summary);
+
+            //Displays if the event will be free or paid for
+            console.log("Is this event free: " + response.events[i].is_free);
+            
+            eventDiv.append("Is this event free: " + response.events[i].is_free);
+
+            //displays the price of the event
+            // eventDiv.append(response.events[0].);
+
+            // eventDiv.append(eventImage);
+
+            $("#display-events").prepend(eventDiv);
+
+        }
+    })
 
 
-}).then(function (response) {
-    console.log("Event Bright")
-    console.log(response);
+};
 
-})
+//When the user chooses the their select days and presses the submit button we'll run this code
+$("#submitDestination").on("click", function () {
 
-// MAP API
+    //clears the previous search info
+    $("#display-events").empty();
+    var entireDate = $("#date-range").val();
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     if (document.querySelectorAll('#map').length > 0)
-//     {
-//       if (document.querySelector('html').lang)
-//         lang = document.querySelector('html').lang;
-//       else
-//         lang = 'en';
-  
-//       var js_file = document.createElement('script');
-//       js_file.type = 'text/javascript';
-//       js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&language=' + lang;
-//       document.getElementsByTagName('head')[0].appendChild(js_file);
-//     }
-//   });
-  
-//   var map;
-  
-//   function initMap()
-//   {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//       center: {lat: -34.397, lng: 150.644},
-//       zoom: 8
-//     });
-  
-//     fetch('https://raw.githubusercontent.com/jayshields/google-maps-api-template/master/markers.json')
-//       .then(function(response){return response.json()})
-//       .then(plotMarkers);
-//   }
-  
-//   var markers;
-//   var bounds;
-  
-//   function plotMarkers(m)
-//   {
-//     markers = [];
-//     bounds = new google.maps.LatLngBounds();
-  
-//     m.forEach(function (marker) {
-//       var position = new google.maps.LatLng(marker.lat, marker.lng);
-  
-//       markers.push(
-//         new google.maps.Marker({
-//           position: position,
-//           map: map,
-//           animation: google.maps.Animation.DROP
-//         })
-//       );
-  
-//       bounds.extend(position);
-//     });
-  
-//     map.fitBounds(bounds);
-//   }
+    var location = $("#locationName").val();
+
+    console.log($("#testingDrTrae").val());
+
+    //splits the dates at the "-" to store them in an array
+    var dateArray = entireDate.split(" - ");
+
+    //stores date info before the "-" mark; for ex: 08/02/2019 - 08/03/2019
+    var startDate = dateArray[0]
+    startDate = startDate.split('/');
+    startDate.unshift(startDate[2]);
+    startDate.pop()
+    startDate = startDate.join('-');
+
+    console.log('Joes date', startDate)
+
+    //stores date info after the "-" mark; for ex: 08/02/2019 - 08/03/2019
+    var endDate = dateArray[1]
+    endDate = endDate.split('/');
+    endDate.unshift(endDate[2]);
+    endDate.pop()
+    endDate = endDate.join('-');
+    //adds start time to the end of selected date 
+    newStartDate = startDate + "T00:00:01";
+    //adds end time to the end of selected date 
+    newEndDate = endDate + "T23:59:59";
+    console.log("Newstart ", newStartDate,
+        "newEnd", newEndDate)
+
+    eventSearch(location, newStartDate, newEndDate);
+
+});
+
+//When the user enters a location and presses the "Let's Explor" button we'll search for food in that area
+$("#submitDestination").on("click", function () {
+    //clears the previous search info
+    $("#display-food").empty();
+    var location = $("#locationName").val()
+    destination = location
+    grabRestaurantInfo(location);
+    //eventSearch(location)
+
+});
+
+//eventSearch("New Orleans", "2019-09-20T00:00:01", "2019-10-10T23:59:59");
+
