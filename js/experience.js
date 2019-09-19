@@ -27,12 +27,12 @@ function grabExperiences(location){
         var gotCasual = false
         $.each(response.businesses, function(key,val){ 
             $("<a target='_blank' href = '" + val.url + "'>").append($("<h3>" + val.name + "</h3>")).appendTo(container)
-            $("<h3>" + val.location.address1 + "</h3>").appendTo(container)
-            $("<h3>" + val.price + "</h3>").appendTo(container)
-            $("<h3>" + val.rating + "</h3>").appendTo(container)
+            $("<h4> Address: " + val.location.address1 + "</h4>").appendTo(container)
+            $("<h4> Price: " + val.price + "</h4>").appendTo(container)
+            $("<h4> Rating: " + val.rating + "</h4>").appendTo(container)
 
-            if (val.img_url){
-                $("<img src='" + val.img_url + "' />").appendTo(container)
+            if (val.image_url){
+                $("<img src='" + val.image_url + "' />").appendTo(container)
             }
            if (val.price.length >=4 && !gotFancy){
                addPackingItem("Fancy clothes")
