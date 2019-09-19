@@ -60,3 +60,7 @@
 #about-margin {
     margin-bottom: 50px !important;
 }
+
+.temperature-description {
+    margin-bottom: 20px;
+}

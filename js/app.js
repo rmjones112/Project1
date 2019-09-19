@@ -35,11 +35,11 @@ function grabRestaurantInfo(location) {
 
             console.log(restaurantImage);
             //Gets restaurant name
-            restaurantDiv.append("Restaurant Name: " + response.businesses[i].name);
+            restaurantDiv.append("<div>Restaurant Name: " + response.businesses[i].name + "<div>");
             // Gets the rating of the restaurant 
-            restaurantDiv.append(" Rating: " + response.businesses[i].rating);
+            restaurantDiv.append("<div>Rating: " + response.businesses[i].rating + "<div>");
             // Gets restaurant price 
-            restaurantDiv.append(" Price: " + response.businesses[i].price);
+            restaurantDiv.append("<p> Price: " + response.businesses[i].price + "<p>");
             //adds restaurantImage to restaurant info
             restaurantDiv.append(restaurantImage);
 
@@ -68,7 +68,7 @@ $.ajax({
 // grabs information from "event bright
 function eventSearch(location, startDate, endDate) {
 
-   
+
     var eventBrightURL = `https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?location.address=${location}&location.within=10km&expand=venue&start_date.range_start=${startDate}&start_date.range_end=${endDate}`
     $.ajax({
         url: eventBrightURL,
@@ -86,15 +86,15 @@ function eventSearch(location, startDate, endDate) {
             //image element to store businesses image url
             var eventImage = $(`<img src="${response.events[i].logo.original.url}" class="image-size">`)
             //Displays the name of the event
-            console.log("Name of the event: " + response.events[i].name.text)
-            eventDiv.append("Name of the event: " + response.events[i].name.text);
+           // console.log("Name of the event: " + response.events[i].name.text)
+            eventDiv.append("<div>Name of the event: " + response.events[i].name.text + "<div>");
 
             // Displays a summary of the event 
-            console.log("Summary: " + response.events[i].summary)
-            eventDiv.append("Event Summary: " + response.events[i].summary);
+           // console.log("Summary: " + response.events[i].summary)
+            eventDiv.append("<div>Event Summary: " + response.events[i].summary + "<div>");
             //adds Event picture with event information
             eventDiv.append(eventImage);
-            
+
 
             // eventDiv.append(eventImage);
             $("#display-events").prepend(eventDiv);
