@@ -4,11 +4,12 @@ var endDateRange = ""
 
 //Created jquery event listener to detect form submission when "Let's Explor" button has been clicked
 $("#submitDestination").on("click", function (){
+  $("#experienceContent").empty();
     //console.log("submitted")
     var location = $("#locationName").val()
     //console.log(location)
     destination = location
-    console.log(destination, startDateRange, endDateRange)
+    // console.log(destination, startDateRange, endDateRange)
     grabExperiences(location)
     //jquery animate and scroll top
 //george
