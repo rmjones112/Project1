@@ -60,3 +60,11 @@
 #about-margin {
     margin-bottom: 50px !important;
 }
+
+.temperature-description {
+    margin-bottom: 20px;
+}
+.exp-img {
+    height: auto;
+    width:500px;
+}

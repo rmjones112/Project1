@@ -26,14 +26,14 @@
 
   <!-- Custom styles for this template -->
   <link href="css/agency.css" rel="stylesheet">
- <!--George added this-->
+  <!--George added this-->
   <link href="css/george.css" rel="stylesheet">
-  
+
 
 
   <!-- Styling template for images in food -->
   <link href="css/weather.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="./css/food-tile.css">
   <link rel="stylesheet" href="css/map.css">
 
   <!-- Link to jQuery library -->
@@ -112,7 +112,7 @@
 
         <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger" id="submitDestination" href="#services">Let's
           EXPLOR!</a>
-        
+
         <input type="text" class="sans-serif" name="daterange" value="09/19/2019 - 10/31/2019" id="date-range" />
 
       </div>
@@ -258,7 +258,7 @@
 
   <!-- About Us -->
   <section class="page-section" id="about">
-      <div id="particles-js"></div>
+    <div id="particles-js"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -287,7 +287,7 @@
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/about/download-1.jpg" alt="">
+                <img class="rounded-circle img-fluid" src="img/about/icon-travel-clipart.png" alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -362,7 +362,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/1.jpg" alt="Responsive Image">
+            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/George.jpg" alt="Responsive Image">
             <h4>George Wyscaver</h4>
             <p class="text-muted">Lead Designer</p>
             <ul class="list-inline social-buttons">
@@ -377,7 +377,7 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://www.linkedin.com/in/georgewyscaver/">
                   <i class="fab fa-linkedin-in"></i>
                 </a>
               </li>
@@ -386,7 +386,7 @@
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/2.jpg" alt="Responsive Image">
+            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/Rogelio.jpg" alt="Responsive Image">
             <h4>Rogelio Zavala</h4>
             <p class="text-muted">Lead Developer</p>
             <ul class="list-inline social-buttons">
@@ -410,12 +410,12 @@
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/rachelphoto.jpg" alt="Responsive Image">
+            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/rachel.jpg" alt="Responsive Image">
             <h4>Rachel Jones</h4>
             <p class="text-muted">Git Master</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                  <a href="#">
+                <a href="#">
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
@@ -425,8 +425,8 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                  <a href="https://www.linkedin.com/in/rachel-jones-99780531/"  target="_blank">
-                
+                <a href="https://www.linkedin.com/in/rachel-jones-99780531/" target="_blank">
+
                   <i class="fab fa-linkedin-in"></i>
                 </a>
               </li>
@@ -435,7 +435,7 @@
         </div>
         <div class="col-sm-3">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/3.jpg" alt="Responsive Image">
+            <img class="mx-auto rounded-circle" id="img-fluid" src="img/team/nicole.jpg" alt="Responsive Image">
             <h4>Nicole Roberts</h4>
             <p class="text-muted">Project Manager</p>
             <ul class="list-inline social-buttons">
@@ -460,8 +460,9 @@
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center" id="team-margin">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
-            veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+          <p class="large text-muted">Coming from a variety of backgrounds and talents, our team of developers combined
+            their creative and technical skills to build Explor. If you would like more information on any of our unique
+            skillsets, feel free to reach out! </p>
         </div>
       </div>
     </div>
@@ -592,7 +593,7 @@
 
   <!-- Portfolio Modals -->
 
-  <!-- Modal 1  rachel jones-->
+  <!-- Modal 1  Weather-->
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="weather-modal modal-content">
@@ -618,7 +619,9 @@
                   </div>
                 </div>
             <div class= "temperature-description"></div>
-            <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger" id="submitDestination" href="#services">  X Close Window
+            <button class="btn btn-primary" data-dismiss="modal" type="button">
+              <i class="fas fa-times"></i>
+              Close Window</button>
                 </a>
               </div>
             </div>
@@ -628,7 +631,7 @@
     </div>
   </div>
 
-  <!-- Modal 2 -->
+  <!-- Modal 2 Food -->
   <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -641,7 +644,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body" id="display-food">
-                
+
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Window</button>
@@ -653,7 +656,7 @@
     </div>
   </div>
 
-  <!-- Modal 3 -->
+  <!-- Modal 3 Events -->
   <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -666,10 +669,10 @@
           <div class="row">
             <div class="col-lg-8 mx-auto" id="display-events">
               <div class="modal-body">
-                <!-- Project Details Go Here
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                <!-- Project Details Go Here -->
+                <!-- <h2 class="text-uppercase">Events</h2> -->
+                <!-- <p class="item-intro text-muted">Fun things to do on my trip!</p> -->
+                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
                   blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia
                   expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
@@ -677,7 +680,7 @@
                   <li>Date: January 2017</li>
                   <li>Client: Finish</li>
                   <li>Category: Identity</li>
-                </ul> -->
+                </ul> --> -->
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Window</button>
@@ -689,7 +692,7 @@
     </div>
   </div>
 
-  <!-- Modal 4 -->
+  <!-- Modal 4 Packing List-->
   <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -704,7 +707,7 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Packing List</h2>
-                <p class="item-intro text-muted">Below are the items are need to pack.</p>
+                <p class="item-intro text-muted">Below are the items I need to pack.</p>
                 <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt=""> -->
                 <!-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                 <ul class="list-inline">
@@ -714,8 +717,8 @@
                 </ul> -->
 
                 <form id="list-form">
-                  <span id="todo-item">What did I forget? <input id="to-do" type="text"><input id="add-to-do" value="Add Item"
-                      type="submit"></span>
+                  <span id="todo-item">What did I forget? <input id="to-do" type="text"><input id="add-to-do"
+                      value="Add Item" type="submit"></span>
                 </form>
                 <div id="packingItems">
                 </div>
@@ -745,7 +748,7 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">experiences</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <!-- <p class="item-intro text-muted">What is there to do?</p> -->
                 <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt=""> -->
                 <!-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                 <ul class="list-inline">
@@ -766,10 +769,10 @@
     </div>
   </div>
 
-  <!-- Modal 6 -->
+  <!-- Modal 6 Map -->
   <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content" id="map">
+      <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
           <div class="lr">
             <div class="rl"></div>
@@ -779,19 +782,9 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Map</h2>
-                <p class="item-intro text-muted">Select a destination on our homepage to get a local map of the area.
-                </p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                <!-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-                  blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia
-                  expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p> -->
-                <!-- <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Window</li>
-                  <li>Category: Photography</li>
-                </ul> -->
+                <div id="map"></div>
+                </br>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Window</button>
@@ -831,12 +824,12 @@
   <script src="js/experience.js"></script>
   <script src="js/app.js"></script>
 
-  //added by george
+
   <script src="js/packinglist.js"></script>
 
   <script src="js/particles.min.js"></script>
   <script src="js/particles_main.js"></script>
-  
+
 
   <script src="js/map.js"></script>
 
