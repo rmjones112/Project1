@@ -32,7 +32,7 @@ function grabExperiences(location){
             $("<h4> Rating: " + val.rating + "</h4>").appendTo(container)
 
             if (val.image_url){
-                $("<img src='" + val.image_url + "' />").appendTo(container)
+                $("<img src='" + val.image_url + "' />").addClass("exp-img").appendTo(container)
             }
            if (val.price.length >=4 && !gotFancy){
                addPackingItem("Fancy clothes")

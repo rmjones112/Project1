@@ -64,4 +64,7 @@
 .temperature-description {
     margin-bottom: 20px;
 }
-img src
+.exp-img {
+    height: auto;
+    width:500px;
+}
